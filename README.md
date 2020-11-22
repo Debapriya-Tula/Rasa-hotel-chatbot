@@ -111,38 +111,3 @@ Bot: Monday through Friday breakfast is 6 am to 9 am. On Saturday and Sunday, we
 User: What are the timings of your restaurant?
 
 Bot: Our restaurant serves a dazzling 24-hour menu.
-
-## Bonus Section
-In natural conversations, users do not always follow pre-defined paths. In an attempt to add some flexibility for that, we can add some functionality to handle questions asked in the middle of a pre-defined flow.
-
-The flows are divided into two parts - multi-step pre-defined flows, and FAQs.
-
-For the bonus section, add support to ask any number of FAQs in the middle of pre-defined flows.
-
-For a small example -
-
-User: I want to book a room.
-
-Bot: How many rooms would you like to book?
-
-Bot: Check-in time starts at 4 PM. Minimum check-in age is 21. Please contact the reception for early check-in requests.
-
-Bot: How many rooms would you like to book?
-
-User: What are your check-out timings?
-
-Bot: Check-out time is 11 AM. Please contact the reception for late checkout requests.
-
-Bot: How many rooms would you like to book?
-
-User: I would like to book 2 rooms.
-
-Bot: What type of room would you want to book?
-- Button1 - Simple 
-- Button 2 - Deluxe
-
-User: (Clicks on Button 1)
-
-Bot: You have chosen to book 2 simple rooms
-
----
