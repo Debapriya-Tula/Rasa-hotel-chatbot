@@ -1,0 +1,307 @@
+version: "2.0"
+
+stories:
+- story: book room affirm path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_room
+    entities:
+    - location: room
+  - action: book_room_form
+  - active_loop: book_room_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Debapriya Tula
+  - slot_was_set:
+    - requested_slot: age
+  - slot_was_set:
+    - age: '21'
+  - slot_was_set:
+    - requested_slot: room_type
+  - slot_was_set:
+    - room_type: deluxe
+  - slot_was_set:
+    - requested_slot: num_rooms
+  - slot_was_set:
+    - num_rooms: '2'
+  - slot_was_set:
+    - requested_slot: num_people
+  - slot_was_set:
+    - num_people: '3'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_slot_values_booking
+  - action: utter_submit
+  - intent: affirm
+  - action: utter_goodbye
+
+
+- story: book room deny path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_room
+    entities:
+    - location: room
+  - action: book_room_form
+  - active_loop: book_room_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Debapriya Tula
+  - slot_was_set:
+    - requested_slot: age
+  - slot_was_set:
+    - age: '21'
+  - slot_was_set:
+    - requested_slot: room_type
+  - slot_was_set:
+    - room_type: deluxe
+  - slot_was_set:
+    - requested_slot: num_rooms
+  - slot_was_set:
+    - num_rooms: '2'
+  - slot_was_set:
+    - requested_slot: num_people
+  - slot_was_set:
+    - num_people: '3'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_slot_values_booking
+  - action: utter_submit
+  - intent: deny
+  - action: utter_deny
+
+- story: clean room now
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: clean_room
+    entities:
+    - location: room
+  - action: utter_clean_time_ask
+  - intent: clean_room_now
+  - action: clean_room_form
+  - active_loop: clean_room_form
+  - slot_was_set:
+    - requested_slot: room_number
+  - slot_was_set:
+    - room_number: '316'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_slot_values_cleaning
+  - intent: affirm
+  - action: utter_confirm_clean_ack
+
+- story: clean room relative
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: clean_room
+    entities:
+    - location: room
+  - action: utter_clean_time_ask
+  - intent: clean_room_later
+  - action: clean_room_relative_form
+  - active_loop: clean_room_relative_form
+  - slot_was_set:
+    - requested_slot: delta_hours
+  - slot_was_set:
+    - delta_hours: '2'
+  - slot_was_set:
+    - requested_slot: room_number
+  - slot_was_set:
+    - room_number: '316'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_slot_values_clean_relative
+  - intent: affirm
+  - action: utter_confirm_clean_relative_ack
+
+# faq check in time affirm
+- story: faq check in time affirm
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq_check_in_time
+  - action: utter_check_in_time
+  - action: utter_is_that_all
+  - intent: affirm
+  - action: utter_goodbye
+
+# faq check in time deny
+- story: faq check in time deny
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq_check_in_time
+  - action: utter_check_in_time
+  - action: utter_is_that_all
+  - intent: deny
+  - action: utter_deny_message
+
+# faq check out time affirm
+- story: faq check out time affirm
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq_check_out_time
+  - action: utter_check_out_time
+  - action: utter_is_that_all
+  - intent: affirm
+  - action: utter_goodbye
+
+# faq check out time deny
+- story: faq check out time deny
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq_check_out_time
+  - action: utter_check_out_time
+  - action: utter_is_that_all
+  - intent: deny
+  - action: utter_deny_message
+
+# faq cancel reservation affirm
+- story: faq cancel reservation affirm
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq_cancel_reservation
+  - action: utter_cancel_reservation
+  - action: utter_is_that_all
+  - intent: affirm
+  - action: utter_goodbye
+
+# faq cancel reservation deny
+- story: faq cancel reservation deny
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq_cancel_reservation
+  - action: utter_cancel_reservation
+  - action: utter_is_that_all
+  - intent: deny
+  - action: utter_deny_message
+
+# faq cancellation policy affirm
+- story: faq cancellation policy affirm
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq_cancellation_policy
+  - action: utter_cancellation_policy
+  - action: utter_is_that_all
+  - intent: affirm
+  - action: utter_goodbye
+
+# faq cancellation policy deny
+- story: faq cancellation policy deny
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq_cancellation_policy
+  - action: utter_cancellation_policy
+  - action: utter_is_that_all
+  - intent: deny
+  - action: utter_deny_message
+
+# faq have restaurant path affirm
+- story: faq have restaurant path affirm
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq_have_restaurant
+  - action: utter_have_restaurant
+  - action: utter_is_that_all
+  - intent: affirm
+  - action: utter_goodbye
+
+# faq have restaurant path deny
+- story: faq have restaurant path deny
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq_have_restaurant
+  - action: utter_have_restaurant
+  - action: utter_is_that_all
+  - intent: deny
+  - action: utter_deny_message
+
+# faq breakfast availability affirm
+- story: faq breakfast availability affirm
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq_breakfast_avail
+  - action: utter_breakfast_avail
+  - action: utter_is_that_all
+  - intent: affirm
+  - action: utter_goodbye
+
+# faq breakfast availability deny
+- story: faq breakfast availability deny
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq_breakfast_avail
+  - action: utter_breakfast_avail
+  - action: utter_is_that_all
+  - intent: deny
+  - action: utter_deny_message
+
+# faq breakfast time affirm
+- story: faq breakfast time affirm
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq_breakfast_time
+  - action: utter_breakfast_time
+  - action: utter_is_that_all
+  - intent: affirm
+  - action: utter_goodbye
+
+# faq breakfast time deny
+- story: faq breakfast time deny
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq_breakfast_time
+  - action: utter_breakfast_time
+  - action: utter_is_that_all
+  - intent: deny
+  - action: utter_deny_message
+
+# faq restaurant time path affirm
+- story: faq restaurant time path affirm
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq_restaurant_time
+  - action: utter_restaurant_time
+  - action: utter_is_that_all
+  - intent: affirm
+  - action: utter_goodbye
+
+# faq restaurant time path deny
+- story: faq restaurant time path deny
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq_restaurant_time
+  - action: utter_restaurant_time
+  - action: utter_is_that_all
+  - intent: deny
+  - action: utter_deny_message
+
+# goodbye
+- story: goodbye path
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye

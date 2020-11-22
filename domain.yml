@@ -1,0 +1,229 @@
+version: "2.0"
+
+intents:
+  - greet
+  - book_room
+  - book_num_rooms
+  - state_room_type
+  - affirm
+  - deny
+  - goodbye
+  - state_age
+  - state_name
+  - state_num_people
+  - clean_room
+  - clean_room_now
+  - clean_room_relative
+  - state_room_cleaning
+  - clean_room_later
+  - faq_check_in_time
+  - faq_check_out_time
+  - faq_cancel_reservation
+  - faq_cancellation_policy
+  - faq_have_restaurant
+  - faq_breakfast_avail
+  - faq_breakfast_time
+  - faq_restaurant_time
+
+
+entities:
+  - room_type
+  - location
+  - num_rooms
+  - name
+  - age
+  - num_people
+  - delta_hours
+  - room_number
+
+slots:
+  name:
+    type: text
+    influence_conversation: false
+    auto_fill: false
+  age:
+    type: float
+    influence_conversation: false
+    auto_fill: false
+  room_type:
+    type: text
+    influence_conversation: false
+    auto_fill: false
+  num_rooms:
+    type: float
+    influence_conversation: false
+    auto_fill: false
+  num_people:
+    type: float
+    influence_conversation: false
+    auto_fill: false
+  delta_hours:
+    type: float
+    influence_conversation: false
+    auto_fill: false
+  room_number:
+    type: float
+    influence_conversation: false
+    auto_fill: false
+
+
+responses:
+  utter_ask_room_number:
+    - text: "What is your room number?"
+  utter_ask_name:
+    - text: "Rooms be booked in the name of ____?"
+  utter_ask_age:
+    - text: "How old is {name}?"
+  utter_ask_room_type:
+    - text: "What kind of room(s) would you like to book?"
+      buttons:
+        - title: "Simple"
+          payload: "simple"
+        - title: "Deluxe"
+          payload: "deluxe"
+  utter_ask_num_rooms:
+    - text: "How many rooms would you like to book?"
+  utter_ask_num_people:
+    - text: "How many people will be staying?"
+  utter_submit:
+    - text: "Are you sure to submit?"
+  utter_slot_values_booking:
+    - text: "The preferences for your hotel rooms are: \n
+            - Booked by: {name} ({age} yrs)\n
+            - For: {num_people} people\n
+            - Rooms booked: {num_rooms} {room_type} rooms"
+  utter_clean_time_ask:
+    - text: "When do you want your room to be cleaned? Now or Later?"
+  utter_ask_delta_hours:
+    - text: "After how many hours?"
+  utter_slot_values_cleaning:
+    - text: "You want Room No. {room_number} cleaned. Confirm?"
+  utter_slot_values_clean_relative:
+    - text: "You want Room No. {room_number} cleaned after {delta_hours} hours. Confirm?"
+  utter_confirm_clean_ack:
+    - text: "Confirmed. Someone will clean room {room_number}."
+  utter_confirm_clean_relative_ack:
+    - text: "Confirmed. Someone will clean room {room_number} in {delta_hours} hours."
+  utter_wrong_room_type:
+    - text: "Room type is not in the database, please try again"
+  utter_wrong_num_people:
+    - text: "Number of people should be a positive integer, please try again"
+  utter_wrong_age:
+    - text: "Invalid age. You should be atleast 21 years old."
+  utter_invalid_room_number:
+    - text: "Please enter a valid room number."
+  utter_invalid_delta_hours:
+    - text: "Please enter a valid number of hours."
+  utter_greet:
+    - text: "Hello! I am your hotel assistant! How can I help?"
+  utter_goodbye:
+    - text: "See you soon. Bye!"
+  utter_deny:
+    - text: "Cool. You chose not to proceed with the booking."
+  utter_check_in_time:
+  - text: "Check-in time starts at 4 PM. Minimum check-in age is 21. Please contact the reception for early check-in requests."
+
+  utter_check_out_time:
+  - text: "Check-out time is 11 AM. Please contact the reception for late checkout requests."
+
+  utter_cancel_reservation:
+  - text: "To cancel a reservation, select the 'Reservations' link from the homepage."
+  - text: "On the Reservations page, under the heading 'View, Change or Cancel a Reservation,'enter your confirmation number, and either the last name on the reservation or the last four digits of the credit card used to make the reservation."
+
+  utter_cancellation_policy:
+  - text: The booking deposit is refundable if the cancellation occurs at least 15
+      days before arrival. For cancellations made after this limit, a penalty will
+      be imposed based on the cancellation policy.
+
+  utter_have_restaurant:
+  - text: Yes, the hotel has a restaurant called the Zephyr Bar. With our menu we
+      strive to reflect the historic art and the spirit of our neighborhood by offering
+      a glimpse into what makes our area unique.
+
+  utter_breakfast_avail:
+  - text: The hotel provides its guests with a free made-to-order breakfast each morning.
+
+  utter_breakfast_time:
+  - text: Monday through Friday breakfast is 6 am to 9 am. On Saturday and Sunday,
+      we are open from 7 am to 10:30 am.
+
+  utter_restaurant_time:
+  - text: Our restaurant serves a dazzling 24-hour menu.
+
+  utter_is_that_all:
+  - text: Would that be all?
+
+  utter_deny_message:
+  - text: How can I help you?
+
+actions:
+- validate_book_room_form
+- validate_clean_room_form
+- validate_clean_room_relative_form
+- utter_confirm_clean_ack
+- utter_confirm_clean_relative_ack
+- utter_invalid_room_number
+- utter_invalid_delta_hours
+- utter_clean_time_ask
+- utter_ask_delta_hours
+- utter_ask_room_number
+- utter_ask_room_type
+- utter_ask_num_rooms
+- utter_ask_num_people
+- utter_ask_name
+- utter_ask_age
+- utter_slot_values_booking
+- utter_slot_values_cleaning
+- utter_slot_values_clean_relative
+- utter_wrong_room_type
+- utter_wrong_num_people
+- utter_wrong_age
+- utter_greet
+- utter_goodbye
+- utter_cancel_reservation
+- utter_cancellation_policy
+- utter_have_restaurant
+- utter_breakfast_avail
+- utter_breakfast_time
+- utter_restaurant_time
+- utter_is_that_all
+- utter_submit
+- utter_deny_message
+
+
+forms:
+  book_room_form:
+    name:
+    - type: from_entity
+      entity: name
+    age:
+    - type: from_entity
+      entity: age
+    room_type:
+    - type: from_entity
+      entity: room_type
+      # intent: book_room
+    num_rooms:
+    - type: from_entity
+      entity: num_rooms
+      # intent: [book_room, book_num_rooms]
+    num_people:
+    - type: from_entity
+      entity: num_people
+
+  clean_room_form:
+    room_number:
+    - type: from_entity
+      entity: room_number
+
+  clean_room_relative_form:
+    delta_hours:
+    - type: from_entity
+      entity: delta_hours
+    room_number:
+    - type: from_entity
+      entity: room_number
+
+session_config:
+  session_expiration_time: 60  # value in minutes
+  carry_over_slots_to_new_session: true

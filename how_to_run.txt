@@ -1,0 +1,10 @@
+# The trained model(s) is present inside the models folder
+
+To run the bot:
+
+Step 1:
+        Run 'rasa run actions' inside a terminal.
+
+Step 2:
+        Run 'rasa shell' inside another terminal.
+        Play with the bot.
