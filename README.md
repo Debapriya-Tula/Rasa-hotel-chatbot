@@ -1,12 +1,3 @@
-Welcome to the assignment! In this assignment, we will try to build a simple chatbot for a hotel.
-We will be using the Rasa framework for this assignment. Do not worry if you have no experience in ML or in using Rasa. All that is required for this assignment can be gleaned from the Rasa tutorial or Rasa docs. 
-
-This assignment is intended to test your learning ability and problem-solving skills together with basic coding skills.
-
-Expected time: 4 days
-
-We hope that you have fun learning a new framework and building the chatbot!
-
 # Objective - 
 To build a simple chatbot for a hotel.
 The chatbot should be able to the following basic functionalities
@@ -17,17 +8,11 @@ The chatbot should be able to the following basic functionalities
 
 Example flows for these functionalities are described in detail in the Flows section.
 
-# Installation
 
-`python 3.6.8` is recommended for use with Rasa!
-
-We highly recommend that you use a fresh virtual environment with python 3.6.8
-
-Rasa 2.0 is the only requirement for this project. Please follow the Rasa installation instructions listed at [https://rasa.com/docs/rasa/user-guide/installation/](https://rasa.com/docs/rasa/user-guide/installation/)
 
 # Instructions
 
-We suggest that you use the [Rasa framework](https://rasa.com/) to build this bot. Rasa is an open-source bot-building platform that will enable you to easily implement the functionalities required for this project.
+The [Rasa framework](https://rasa.com/) is used to build this bot. Rasa is an open-source bot-building platform that will enable you to easily implement the functionalities required for this project.
 
 You can check out this simple [Rasa tutorial](https://rasa.com/docs/rasa/user-guide/rasa-tutorial/) to get an idea of how to approach the problem.
 
@@ -36,11 +21,10 @@ Please go through the Rasa 2.0 docs to familiarize yourself with how to use the 
 
 # Flows
 
-Please note that the flows below are only meant as examples to demonstrate functionalities. We would expect the bot to also handle questions having the same meaning but posed in different ways.
+Please note that the flows below are only meant as examples to demonstrate functionalities.
 
 For eg. in our Book Room example, we have the user say "I want to book a room". In this case, the bot should also be able to direct the user to this flow if he says something along the lines of "I would like to book a room", "I want to book a room for my stay" etc.
 
-Please add at least 5 training examples for each intent so that the bot is able to handle.
 
 ## Book Room
 
@@ -162,17 +146,3 @@ User: (Clicks on Button 1)
 Bot: You have chosen to book 2 simple rooms
 
 ---
-
-Usage of git to iteratively build your code will be much appreciated. It will help us get a good idea about your progress.
-
-# Submission
-
-Please fill out the google form provided in the assignment email to submit your assignment. (It contains some info about your assignment such as link to your repo and model which will help us in auto-grading)
-
-Point to note - 
-* Make sure that the link to your assignment repo is correct
-* Make sure that the link to your model is visible and downloadable using wget.
-
-Both of these are essential for us to auto-grade your submission.
-
-Hope that this would be a fun experience for you and you learn something interesting. Happy coding!
